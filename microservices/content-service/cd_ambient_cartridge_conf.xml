@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CartridgeDefinition Version="8.5" Uri="tcd:cartridge:example" Description="Example cartridge."
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="schemas/cd_ambient_cartridge_conf.xsd">
+    <ClaimProcessorDefinitions>
+        <!--
+        <ClaimProcessorDefinition Uri="tcd:claimprocessor:example:userdetails" ImplementationClass="com.sdl.web.ambientdata.processing.ExampleClaimProcessor1"
+                            Description="Example claim processor that gets user details.">
+            <RequestStart>
+                <InputClaims>
+                    <ClaimDefinition Uri="tcd:claim:userid" />
+                </InputClaims>
+                <OutputClaims>
+                    <ClaimDefinition Uri="tcd:claim:username" />
+                    <ClaimDefinition Uri="tcd:claim:usersex" />
+                    <ClaimDefinition Uri="tcd:claim:userage" />
+                </OutputClaims>
+            </RequestStart>
+        </ClaimProcessorDefinition>
+
+        <ClaimProcessorDefinition Uri="tcd:claimprocessor:example:example2"
+                            ConfigProviderClass="com.sdl.web.ambientdata.processing.ExampleClaimProcessorConfigProvider" />
+        -->
+    </ClaimProcessorDefinitions>
+</CartridgeDefinition>

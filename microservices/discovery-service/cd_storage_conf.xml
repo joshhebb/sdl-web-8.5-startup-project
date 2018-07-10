@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><Configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="8.5" xsi:noNamespaceSchemaLocation="schemas/cd_storage_conf.xsd">
+    <Namespace default="tcm"/>
+    <Global>
+        <ObjectCache Enabled="false">
+            <Policy Class="com.tridion.cache.LRUPolicy" Type="LRU">
+                <Param Name="MemSize" Value="16mb"/>
+            </Policy>
+            <!-- The Features element specifies classes that add additional functionality to the cache. -->
+            <Features>
+                <Feature Class="com.tridion.cache.DependencyTracker" Type="DependencyTracker"/>
+            </Features>
+        </ObjectCache>
+        <Storages>
+            <StorageBindings>
+                <Bundle src="discovery_jpa_odata_dao_bundle.xml"/>
+            </StorageBindings>
+            <Storage Class="com.tridion.storage.persistence.JPADAOFactory" Id="defaultdb" Type="persistence" dialect="MSSQL">
+                <Pool CheckoutTimeout="120" IdleTimeout="120" MonitorInterval="60" Size="5" Type="jdbc"/>
+                <DataSource Class="com.microsoft.sqlserver.jdbc.SQLServerDataSource">
+                    <Property Name="serverName" Value="localhost"/>
+                    <Property Name="portNumber" Value="1433"/>
+                    <Property Name="databaseName" Value="Tridion_Broker"/>
+                    <Property Name="user" Value="sa"/>
+                    <Property Name="password" Value="encrypted:mkjz/F6DjSCNOLxCP+xVug=="/>
+                </DataSource>
+            </Storage>
+        </Storages>
+    </Global>
+    <ItemTypes cached="false" defaultStorageId="defaultdb"/>
+    <ConfigRepository CacheEnabled="true" CacheExpirationDuration="600" ClientId="registration" ClientSecret="encrypted:HzfQh9wYwAKShDxCm4DnnBnysAz9PtbDMFXMbPszSVY=" ConnectionTimeout="10000" ServiceMonitorPollDuration="10" ServiceUri="http://localhost:8092/discovery.svc">
+        <Roles>
+            <Role Name="ContentServiceCapability" Url="http://localhost:8091/content.svc"/>
+            <Role Name="DeployerCapability" Url="http://localhost:8094/httpupload">
+                <Property Name="undo.enabled" Value="false"/>
+                <Property Name="encoding" Value="UTF-8"/>
+            </Role>
+        </Roles>
+    </ConfigRepository>
+    <License Location="C:\microservices\licenses\cd_licenses.xml"/>
+</Configuration>
